@@ -1,0 +1,329 @@
+<% if(eng) {%>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>ELHAYAT</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:400,400i,700"
+      rel="stylesheet"
+    />
+
+    <link type="text/css" rel="stylesheet" href="/css/booking.css" />
+    <link href="/assets/css/style.css" rel="stylesheet" media="screen" />
+    <link href="/assets/css/chblue.css" rel="stylesheet" media="screen" />
+    <link
+      href="/assets/css/theme-responsive.css"
+      rel="stylesheet"
+      media="screen"
+    />
+    <link
+      href="/assets/css/dtb/jquery.dataTables.min.css"
+      rel="stylesheet"
+      media="screen"
+    />
+    <link href="/assets/css/select2.min.css" rel="stylesheet" media="screen" />
+    <link href="/assets/css/toastr.min.css" rel="stylesheet" media="screen" />
+    <link rel="stylesheet" href="/asset/css/styles.css" />
+
+    <!-- Font Awesome -->
+    <link href="/asset/font/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="/img/logo.ico" />
+    <!--- Style css -->
+
+    <script type="text/javascript" src="/assets/js/jquery.js"></script>
+    <script
+      type="text/javascript"
+      src="/assets/js/jquery-ui.1.10.4.min.js"
+    ></script>
+    <script type="text/javascript" src="/assets/js/toastr.min.js"></script>
+    <script type="text/javascript" src="/assets/js/modernizr.js"></script>
+    <!-- Livewire Styles -->
+    <style>
+      [wire\:loading],
+      [wire\:loading\.delay],
+      [wire\:loading\.inline-block],
+      [wire\:loading\.inline],
+      [wire\:loading\.block],
+      [wire\:loading\.flex],
+      [wire\:loading\.table],
+      [wire\:loading\.grid],
+      [wire\:loading\.inline-flex] {
+        display: none;
+      }
+
+      [wire\:loading\.delay\.shortest],
+      [wire\:loading\.delay\.shorter],
+      [wire\:loading\.delay\.short],
+      [wire\:loading\.delay\.long],
+      [wire\:loading\.delay\.longer],
+      [wire\:loading\.delay\.longest] {
+        display: none;
+      }
+
+      [wire\:offline] {
+        display: none;
+      }
+
+      [wire\:dirty]:not(textarea):not(input):not(select) {
+        display: none;
+      }
+
+      input:-webkit-autofill,
+      select:-webkit-autofill,
+      textarea:-webkit-autofill {
+        animation-duration: 50000s;
+        animation-name: livewireautofill;
+      }
+
+      @keyframes livewireautofill {
+        from {
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="layout">
+      <%- include("./navandfooter/nav.ejs") %>
+
+      <div id="booking" class="section">
+        <div class="section-center">
+          <div class="container">
+            <div class="row">
+              <div class="booking-form">
+                <form id="Booking">
+                  <div class="row no-margin">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <span class="form-label">Date</span>
+                        <input
+                          required
+                          class="form-control"
+                          type="date"
+                          name="date"
+                          id="date"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <span class="form-label">Gender</span>
+                        <select
+                          class="form-control"
+                          name="gender"
+                          id="gender"
+                          required
+                        >
+                          <option value="ذكر">Male</option>
+                          <option value="أنثى">Female</option>
+                        </select>
+                        <span class="select-arrow"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row no-margin">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <span class="form-label">Religion</span>
+                        <select
+                          class="form-control"
+                          name="religion"
+                          id="religion"
+                          required
+                        >
+                          <option value="مسلم">Muslim</option>
+                          <option value="مسيحي">Christian</option>
+                        </select>
+                        <span class="select-arrow"></span>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <span class="form-label">Service</span>
+                        <select
+                          class="form-control"
+                          name="service"
+                          id="service"
+                          required
+                        >
+                          <% services.forEach(service => { %>
+                          <option value="<%= service.nameAr %>">
+                            <%= service.name %>
+                          </option>
+                          <% }) %>
+                        </select>
+                        <span class="select-arrow"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <span class="form-label">Name</span>
+                    <input
+                      required
+                      class="form-control"
+                      type="text"
+                      placeholder="Enter your name"
+                      name="name"
+                      id="name"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <span class="form-label">Email</span>
+                    <input
+                      required
+                      class="form-control"
+                      type="email"
+                      placeholder="Enter your email"
+                      name="email"
+                      id="email"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <span class="form-label">Phone</span>
+                    <input
+                      required
+                      class="form-control"
+                      type="tel"
+                      placeholder="Enter your phone number"
+                      name="phone"
+                      id="phone"
+                      ]
+                    />
+                  </div>
+                  <div class="form-btn">
+                    <button class="submit-btn">Book Now</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <%- include("./navandfooter/footer.ejs") %>
+    </div>
+    <%- include("./navandfooter/scripts.ejs") %>
+    <script>
+      const booking = document.getElementById("Booking");
+      booking.addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent the form from submitting normally
+
+        const name = booking.querySelector("#name").value;
+        const phone = booking.querySelector("#phone").value;
+        const email = booking.querySelector("#email").value;
+        const date = booking.querySelector("#date").value;
+        const religion = booking.querySelector("#religion").value;
+        const gender = booking.querySelector("#gender").value;
+        const service = booking.querySelector("#service").value;
+        const form = {
+          name: name,
+          phone: phone,
+          email: email,
+          date: date,
+          religion: religion,
+          gender: gender,
+          service: service,
+        };
+
+        fetch("/service/book", {
+          method: "POST",
+          body: JSON.stringify(form),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.success) {
+              alert("Booking successful!");
+            } else {
+              alert("Booking failed. Please try again.");
+            }
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            alert("An error occurred. Please try again.");
+          });
+      });
+    </script>
+
+    <script type="text/javascript">
+      jQuery(document).ready(function () {
+        jQuery(".tp-banner").show().revolution({
+          dottedOverlay: "none",
+          delay: 5000,
+          startwidth: 1170,
+          startheight: 480,
+          minHeight: 250,
+          navigationType: "none",
+          navigationArrows: "solo",
+          navigationStyle: "preview1",
+        });
+      });
+    </script>
+    <!-- Livewire Scripts -->
+
+    <script
+      src="/livewire/livewire.js?id=c69d0f2801c01fcf8166"
+      data-turbo-eval="false"
+      data-turbolinks-eval="false"
+    ></script>
+    <script data-turbo-eval="false" data-turbolinks-eval="false">
+      if (window.livewire) {
+        console.warn(
+          "Livewire: It looks like Livewire's @livewireScripts JavaScript assets have already been loaded. Make sure you aren't loading them twice."
+        );
+      }
+
+      window.livewire = new Livewire();
+      window.livewire.devTools(true);
+      window.Livewire = window.livewire;
+      window.livewire_app_url = "";
+      window.livewire_token = "lqU58FPmFYN6Q6JsRSyee5esoKHZ8jZHpMgoR05v";
+
+      /* Make sure Livewire loads first. */
+      if (window.Alpine) {
+        /* Defer showing the warning so it doesn't get buried under downstream errors. */
+        document.addEventListener("DOMContentLoaded", function () {
+          setTimeout(function () {
+            console.warn(
+              "Livewire: It looks like AlpineJS has already been loaded. Make sure Livewire's scripts are loaded before Alpine.\\n\\n Reference docs for more info: http://laravel-livewire.com/docs/alpine-js"
+            );
+          });
+        });
+      }
+
+      /* Make Alpine wait until Livewire is finished rendering to do its thing. */
+      window.deferLoadingAlpine = function (callback) {
+        window.addEventListener("livewire:load", function () {
+          callback();
+        });
+      };
+
+      let started = false;
+
+      window.addEventListener("alpine:initializing", function () {
+        if (!started) {
+          window.livewire.start();
+
+          started = true;
+        }
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        if (!started) {
+          window.livewire.start();
+
+          started = true;
+        }
+      });
+    </script>
+  </body>
+</html>
+<% }else { %> <%- include('./arabic/booking.ejs') %><% } %>

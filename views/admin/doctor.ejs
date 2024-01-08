@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./n&f/head.ejs') %>
+  </head>
+  <body dir="rtl">
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+      <%- include("./n&f/nav.ejs") %>
+      <!-- Page Wrapper -->
+      <div class="page-wrapper">
+        <!-- Page Content -->
+        <div class="content container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="table-responsive">
+                <table class="table table-striped custom-table mb-0 datatable">
+                  <thead>
+                    <tr>
+                      <th style="width: 30px">#</th>
+                      <th>الاسم الكامل</th>
+                      <th>تاريخ الميلاد</th>
+                      <th>مكان الولادة</th>
+                      <th>ديانة</th>
+                      <th>رقم الهوية</th>
+                      <th>هاتف</th>
+                      <th>بريد إلكتروني</th>
+                      <th>جنس</th>
+                      <th>تخصص</th>
+                      <th>مؤهل</th>
+                      <th>دراسات اخرى</th>
+                      <th>سنة التخرج</th>
+                      <th>جامعة</th>
+                      <th>ديانة المريض</th>
+                      <th>جنس المريض</th>
+                      <th>وقت العمل المفضل</th>
+                      <th>أماكن العمل السابقة</th>
+                      <th>عنوان السكن الحالي</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% data.forEach(el => { %>
+                    <tr>
+                      <td><%= el.id %></td>
+                      <td><%= el.fullname %></td>
+                      <td><%= el['birth-date'] %></td>
+                      <td><%= el['birth-place'] %></td>
+                      <td><%= el.religion %></td>
+                      <td><%= el['national-id'] %></td>
+                      <td><%= el.phone %></td>
+                      <td><%= el.email %></td>
+                      <td><%= el.gender %></td>
+                      <td><%= el.specialization %></td>
+                      <td><%= el.qualification %></td>
+                      <td><%= el['other-studies'] %></td>
+                      <td><%= el['graduation-year'] %></td>
+                      <td><%= el.university %></td>
+                      <td><%= el['patient-religion'] %></td>
+                      <td><%= el['patient-gender'] %></td>
+                      <td><%= el['preferred-worktime'] %></td>
+                      <td><%= el['previous-workplaces'] %></td>
+                      <td><%= el['current-residence-address'] %></td>
+                    </tr>
+                    <% }); %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /Page Wrapper -->
+    </div>
+    <!-- /Main Wrapper -->
+
+    <%- include('./n&f/scripts.ejs') %>
+  </body>
+</html>

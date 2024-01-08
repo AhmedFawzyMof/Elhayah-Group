@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./n&f/head.ejs') %>
+  </head>
+  <body dir="rtl">
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+      <%- include("./n&f/nav.ejs") %>
+      <!-- Page Wrapper -->
+      <div class="page-wrapper">
+        <!-- Page Content -->
+        <div class="content container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="table-responsive">
+                <table class="table table-striped custom-table mb-0 datatable">
+                  <thead>
+                    <tr>
+                      <th style="width: 30px">#</th>
+                      <th>اسم العميل</th>
+                      <th>البريد الإلكتروني للعميل</th>
+                      <th>هاتف العميل</th>
+                      <th>الرسالة</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% data.forEach(el => { %>
+                    <tr>
+                      <td><%= el.id %></td>
+                      <td><%= el.name %></td>
+                      <td><%= el.email %></td>
+                      <td><%= el.phone %></td>
+                      <td><%= el.comment %></td>
+                    </tr>
+                    <% }); %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /Page Wrapper -->
+    </div>
+    <!-- /Main Wrapper -->
+    <%- include('./n&f/scripts.ejs') %>
+  </body>
+</html>

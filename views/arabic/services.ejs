@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>ELHAYAT</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/assets/css/style.css" rel="stylesheet" media="screen" />
+    <link href="/assets/css/chblue.css" rel="stylesheet" media="screen" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link
+      href="/assets/css/theme-responsive.css"
+      rel="stylesheet"
+      media="screen"
+    />
+    <link
+      href="/assets/css/dtb/jquery.dataTables.min.css"
+      rel="stylesheet"
+      media="screen"
+    />
+    <link href="/assets/css/select2.min.css" rel="stylesheet" media="screen" />
+    <link href="/assets/css/toastr.min.css" rel="stylesheet" media="screen" />
+    <link rel="stylesheet" href="/asset/css/styles.css" />
+
+    <!-- Font Awesome -->
+    <link href="/asset/font/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="/img/logo.ico" />
+    <!--- Style css -->
+
+    <script type="text/javascript" src="/assets/js/jquery.js"></script>
+    <script
+      type="text/javascript"
+      src="/assets/js/jquery-ui.1.10.4.min.js"
+    ></script>
+    <script type="text/javascript" src="/assets/js/toastr.min.js"></script>
+    <script type="text/javascript" src="/assets/js/modernizr.js"></script>
+    <!-- Livewire Styles -->
+    <style>
+      [wire\:loading],
+      [wire\:loading\.delay],
+      [wire\:loading\.inline-block],
+      [wire\:loading\.inline],
+      [wire\:loading\.block],
+      [wire\:loading\.flex],
+      [wire\:loading\.table],
+      [wire\:loading\.grid],
+      [wire\:loading\.inline-flex] {
+        display: none;
+      }
+
+      [wire\:loading\.delay\.shortest],
+      [wire\:loading\.delay\.shorter],
+      [wire\:loading\.delay\.short],
+      [wire\:loading\.delay\.long],
+      [wire\:loading\.delay\.longer],
+      [wire\:loading\.delay\.longest] {
+        display: none;
+      }
+
+      [wire\:offline] {
+        display: none;
+      }
+
+      [wire\:dirty]:not(textarea):not(input):not(select) {
+        display: none;
+      }
+
+      input:-webkit-autofill,
+      select:-webkit-autofill,
+      textarea:-webkit-autofill {
+        animation-duration: 50000s;
+        animation-name: livewireautofill;
+      }
+
+      @keyframes livewireautofill {
+        from {
+        }
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div id="layout">
+      <%- include("../navandfooter/arnav.ejs") %>
+      <section class="home" id="home">
+        <div class="image">
+          <img src="/img/main.jpg" alt="" />
+        </div>
+
+        <div class="content">
+          <h3>طلب خدمة طبية منزلية</h3>
+          <p>
+            الحياة جروب للخدمات الطبية المنزلية هى مؤسسة طبية فى مصر تقدم
+            الخدمات الطبية فى المنزل على يد فريق طبي متكامل من الأطباء والصيادلة
+            والتمريض وآخرين من مقدمى الرعاية الصحية المنزلية هذا الفريق يحلم أن
+            تقدم فى بلدنا الجبيبة مصر خدمة صحية راقية للمريض المصرى وفقا
+            للمعايير العالمية. ويسعى من أجل هذا الحلم بكل ما أوتى من جهد وعلم.
+          </p>
+          <a href="/book" class="btn">
+            احجز موعداً <span class="fas fa-chevron-right"></span>
+          </a>
+        </div>
+      </section>
+
+      <section class="services" id="services">
+        <h1 class="heading"><span>خدماتنا</span></h1>
+
+        <div class="box-container">
+          <div class="box-container">
+            <% for( let i = 0; i < services.length; i++ ) { const service =
+            services[i] %>
+            <div class="box">
+              <div class="image">
+                <img
+                  src="/images/services/thumbnails/<%=service.thumbnail%>"
+                  alt=""
+                />
+              </div>
+              <div class="content">
+                <h3><%=service.nameAr%></h3>
+                <a href="/service/<%=service.slug%>" class="btn">
+                  احجز موعداً
+                  <span class="fas fa-chevron-right"></span>
+                </a>
+              </div>
+            </div>
+            <% } %>
+          </div>
+        </div>
+      </section>
+
+      <section class="home" id="home">
+        <div class="image">
+          <img src="/img/nurse.webp" alt="" />
+        </div>
+
+        <div class="content">
+          <h1>لماذا تختارنا؟</h1>
+          <p>
+            هدفنا أن تصل الخدمة الطبية المتميزة للمرضى فى منازلهم بأقصى درجة من
+            السلامة والدقة. لذلك نقوم بعمل جميع الخدمات الطبية بالمنزل:
+          </p>
+          <a href="/contact" class="btn">
+            اتصل بنا<span class="fas fa-chevron-right"></span>
+          </a>
+        </div>
+      </section>
+      <%- include("../navandfooter/footerar.ejs") %>
+    </div>
+    <%- include("../navandfooter/scripts.ejs") %>
+    <script type="text/javascript">
+      jQuery(document).ready(function () {
+        jQuery(".tp-banner").show().revolution({
+          dottedOverlay: "none",
+          delay: 5000,
+          startwidth: 1170,
+          startheight: 480,
+          minHeight: 250,
+          navigationType: "none",
+          navigationArrows: "solo",
+          navigationStyle: "preview1",
+        });
+      });
+    </script>
+    <!-- Livewire Scripts -->
+
+    <script
+      src="/livewire/livewire.js?id=c69d0f2801c01fcf8166"
+      data-turbo-eval="false"
+      data-turbolinks-eval="false"
+    ></script>
+    <script data-turbo-eval="false" data-turbolinks-eval="false">
+      if (window.livewire) {
+        console.warn(
+          "Livewire: It looks like Livewire's @livewireScripts JavaScript assets have already been loaded. Make sure you aren't loading them twice."
+        );
+      }
+
+      window.livewire = new Livewire();
+      window.livewire.devTools(true);
+      window.Livewire = window.livewire;
+      window.livewire_app_url = "";
+      window.livewire_token = "QGbMBNj1gYsWedkzmxGSwlW7RHR1NpD2ZUuV13zo";
+
+      /* Make sure Livewire loads first. */
+      if (window.Alpine) {
+        /* Defer showing the warning so it doesn't get buried under downstream errors. */
+        document.addEventListener("DOMContentLoaded", function () {
+          setTimeout(function () {
+            console.warn(
+              "Livewire: It looks like AlpineJS has already been loaded. Make sure Livewire's scripts are loaded before Alpine.\\n\\n Reference docs for more info: http://laravel-livewire.com/docs/alpine-js"
+            );
+          });
+        });
+      }
+
+      /* Make Alpine wait until Livewire is finished rendering to do its thing. */
+      window.deferLoadingAlpine = function (callback) {
+        window.addEventListener("livewire:load", function () {
+          callback();
+        });
+      };
+
+      let started = false;
+
+      window.addEventListener("alpine:initializing", function () {
+        if (!started) {
+          window.livewire.start();
+
+          started = true;
+        }
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        if (!started) {
+          window.livewire.start();
+
+          started = true;
+        }
+      });
+    </script>
+  </body>
+</html>

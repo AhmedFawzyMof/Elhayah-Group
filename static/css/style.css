@@ -1,0 +1,267 @@
+:root {
+  --green: #3ed0f5;
+  --black: #444;
+  --light-color: #777;
+  --box-shadow: 0.5rem 0.5rem 0 #16a08533;
+  --text-shadow: none;
+  --border: 0.2rem solid #3ed0f5;
+}
+
+section {
+  padding: 2rem 4%;
+}
+section:nth-child(even) {
+  background: #e6e5e5;
+}
+
+.heading {
+  text-align: center;
+  padding-bottom: 2rem;
+  text-shadow: var(--text-shadow);
+  text-transform: uppercase;
+  color: var(--black);
+  font-size: 35px;
+  letter-spacing: 0.4rem;
+}
+
+.heading span {
+  text-transform: uppercase;
+  color: #3ed0f5;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  padding-left: 1rem;
+  border: var(--border);
+  border-radius: 0.5rem;
+  box-shadow: var(--box-shadow);
+  color: #3ed0f5;
+  cursor: pointer;
+  font-size: 15px;
+  background: #fff;
+  color: #fff;
+  transition: 0.3s;
+}
+a.btn:hover {
+  background: #fff;
+  color: #3ed0f5;
+}
+.btn span {
+  padding: 0.7rem 1rem;
+  border-radius: 0.5rem;
+  background: #fff;
+  color: #3ed0f5;
+  margin-left: 0.5rem;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #3ed0f5;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.btn:hover span {
+  color: #fff;
+  background: #3ed0f5;
+  margin-left: 1rem;
+  transition: 0.3s;
+}
+
+.max-width {
+  max-width: 1300px;
+  padding: 0 80px;
+  margin: auto;
+}
+
+.home {
+  display: grid;
+  gap: 1.5rem;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+}
+
+.home .image {
+  flex: 1 1 45rem;
+}
+
+.home .image img {
+  width: 100%;
+  height: 280px;
+  border-radius: 10px;
+  box-shadow: -10px 10px 5px #16a08533;
+}
+
+.home .content {
+  flex: 1 1 45rem;
+}
+
+.home .content h3 {
+  color: var(--black);
+  line-height: 1.8;
+}
+
+.home .content p {
+  color: var(--light-color);
+  line-height: 1.8;
+  padding: 1rem 0;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+.services .box-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.services .box-container .box {
+  background: #fff;
+  border-radius: 0.5rem;
+  box-shadow: var(--box-shadow);
+  border: var(--border);
+  padding: 10px;
+  width: 280px;
+  height: 425px;
+  position: relative;
+}
+.box .btn {
+  position: absolute;
+  bottom: 10px;
+  transition: 0.3s;
+}
+.box .btn:hover {
+  color: #3ed0f5;
+  background: #fff;
+}
+.services .box-container .box i {
+  color: #3ed0f5;
+  padding-bottom: 0.5rem;
+}
+
+.services .box-container .box h3 {
+  color: var(--black);
+  padding: 1rem 0;
+}
+
+.services .box-container .box p {
+  color: var(--light-color);
+  line-height: 2;
+}
+
+.services .box-container .box .image {
+  height: 250px;
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+.services .box-container .box .image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: 0.3s;
+}
+
+.services .box-container .box:hover .image img {
+  transform: scale(1.2);
+}
+
+.services .box-container .box .content {
+  padding-top: 1rem;
+}
+
+.services .box-container .box .content .icon {
+  padding: 1rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.services .box-container .box .content .icon a {
+  color: var(--light-color);
+}
+
+.services .box-container .box .content .icon a:hover {
+  color: #3ed0f5;
+}
+
+.services .box-container .box .content .icon a i {
+  padding-right: 0.5rem;
+  color: #3ed0f5;
+}
+
+.services .box-container .box .content h3 {
+  color: var(--black);
+}
+
+.services .box-container .box .content p {
+  color: var(--light-color);
+  line-height: 1.8;
+  padding: 1rem 0;
+}
+
+@media (max-width: 991px) {
+  section {
+    padding: 2rem;
+  }
+}
+@media (max-width: 450px) {
+  .home {
+    grid-template-columns: 1fr;
+  }
+  .home .image img {
+    height: 280px;
+  }
+}
+
+#posts {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.post {
+  width: 300px;
+  overflow: hidden;
+  border-radius: 5px;
+  height: auto;
+  box-shadow: 0 0 5px #333;
+  color: #333;
+}
+.post img {
+  vertical-align: middle;
+  width: 100%;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#Thepost .image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px 0;
+  overflow: hidden;
+}
+
+#Thepost .image img {
+  width: 50%;
+}
+
+@media (max-width: 550px) {
+  #Thepost .image img {
+    width: 100%;
+  }
+}

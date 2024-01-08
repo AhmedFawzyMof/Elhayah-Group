@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ELHAYAT</title>
+    <link rel="stylesheet" href="/css/job.css" />
+    <link rel="shortcut icon" href="/img/favicon.png" />
+    <link href="/assets/css/style.css" rel="stylesheet" media="screen" />
+    <link href="/assets/css/chblue.css" rel="stylesheet" media="screen" />
+    <link
+      href="/assets/css/theme-responsive.css"
+      rel="stylesheet"
+      media="screen"
+    />
+    <link
+      href="/assets/css/dtb/jquery.dataTables.min.css"
+      rel="stylesheet"
+      media="screen"
+    />
+    <link href="/assets/css/select2.min.css" rel="stylesheet" media="screen" />
+    <link href="/assets/css/toastr.min.css" rel="stylesheet" media="screen" />
+    <script type="text/javascript" src="/assets/js/jquery.js"></script>
+    <script
+      type="text/javascript"
+      src="/assets/js/jquery-ui.1.10.4.min.js"
+    ></script>
+    <script type="text/javascript" src="/assets/js/toastr.min.js"></script>
+    <script type="text/javascript" src="/assets/js/modernizr.js"></script>
+  </head>
+  <body>
+    <%-include("../navandfooter/arnav.ejs")%>
+    <div class="container">
+      <div class="apply_box">
+        <h1>طلب وظيفة طبيب</h1>
+        <form id="job">
+          <div class="form_container">
+            <div class="form_control">
+              <label for="fullname"> الاسم الكامل </label>
+              <input
+                id="fullname"
+                name="fullname"
+                placeholder="Enter Name..."
+              />
+            </div>
+            <div class="form_control">
+              <label for="email"> بريد إلكتروني </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter Email..."
+              />
+            </div>
+            <div class="form_control">
+              <label for="phone"> هاتف </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="Enter Phone Number..."
+              />
+            </div>
+            <div class="form_control">
+              <label for="birth-date"> تاريخ الميلاد </label>
+              <input
+                type="date"
+                id="birth-date"
+                name="birth-date"
+                placeholder="Enter Birth Date..."
+              />
+            </div>
+            <div class="form_control">
+              <label for="national-id"> الرقم القومي </label>
+              <input
+                type="number"
+                id="national-id"
+                name="national-id"
+                placeholder="Enter National Id..."
+              />
+            </div>
+            <div class="form_control">
+              <label for="birth-place"> مكان الولادة </label>
+              <input
+                type="text"
+                id="birth-place"
+                name="birth-place"
+                placeholder="Enter Birth Place..."
+              />
+            </div>
+            <div class="form_control">
+              <label for="specialization"> تخصص </label>
+              <input
+                type="text"
+                id="specialization"
+                name="specialization"
+                placeholder="Enter Specialization..."
+              />
+            </div>
+            <div class="form_control">
+              <label for="qualification"> مؤهل </label>
+              <input
+                type="text"
+                id="qualification"
+                name="qualification"
+                placeholder="Enter Qualification..."
+              />
+            </div>
+            <div class="form_control">
+              <label for="graduation-year"> سنة التخرج </label>
+              <input
+                type="date"
+                id="graduation-year"
+                name="graduation-year"
+                placeholder="Enter Graduation Year..."
+              />
+            </div>
+            <div class="form_control">
+              <label for="university"> جامعة </label>
+              <input
+                type="text"
+                id="university"
+                name="university"
+                placeholder="Enter University..."
+              />
+            </div>
+            <div class="form_control">
+              <label for="gender"> جنس </label>
+              <select id="gender" name="gender">
+                <option class="col-md-4" selected disabled>اختر الجنس</option>
+                <option value="ذكر">ذكر</option>
+                <option value="أنثى">أنثى</option>
+              </select>
+            </div>
+            <div class="form_control">
+              <label for="patient-religion"> يفضل عمل مع مرضي </label>
+              <select id="patient-religion" name="patient-religion">
+                <option value="مسلم">مسلم</option>
+                <option value="مسيحي">مسيحي</option>
+                <option value="كلاهما">كلاهما</option>
+              </select>
+            </div>
+            <div class="form_control">
+              <label for="patient-gender"> يفضل عمل مع مرضي </label>
+              <select id="patient-gender" name="patient-gender">
+                <option value="ذكر">ذكر</option>
+                <option value="أنثى">أنثى</option>
+                <option value="كلاهما">كلاهما</option>
+              </select>
+            </div>
+            <div class="form_control">
+              <label for="gender"> ساعة العمل </label>
+              <select id="gender" name="gender">
+                <option value="8 ساعات ليلاً">8 ساعات ليلاً</option>
+                <option value="8 ساعات">8 ساعات</option>
+                <option value="12 ساعة">12 ساعة</option>
+                <option value="12 ساعة ليلاً">12 ساعة ليلاً</option>
+                <option value="لا فرق">لا فرق</option>
+              </select>
+            </div>
+            <div class="form_control">
+              <label for="religion"> ديانه </label>
+              <select id="religion" name="religion">
+                <option class="col-md-4" selected disabled>ديانه</option>
+                <option value="مسلم">مسلم</option>
+                <option value="مسيحي">مسيحي</option>
+              </select>
+            </div>
+            <div class="textarea_control">
+              <label for="current-residence-address">
+                عنوان الإقامة الحالي
+              </label>
+              <textarea
+                id="current-residence-address"
+                name="current-residence-address"
+                row="4"
+                cols="50"
+                placeholder="Enter Address"
+              ></textarea>
+            </div>
+            <div class="textarea_control">
+              <label for="previous-workplaces"> أماكن العمل السابقة </label>
+              <textarea
+                id="previous-workplaces"
+                name="previous-workplaces"
+                row="4"
+                cols="50"
+                placeholder="Enter Previous Workplaces"
+              ></textarea>
+            </div>
+            <div class="textarea_control">
+              <label for="other-studies"> دراسات اخرى </label>
+              <textarea
+                id="other-studies"
+                name="other-studies"
+                row="4"
+                cols="50"
+                placeholder="Enter Other Studies"
+              ></textarea>
+            </div>
+          </div>
+          <div class="button_container">
+            <button type="submit" style="color: #333">قدم الآن</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <%- include("../navandfooter/footer.ejs")%> <%-
+    include("../navandfooter/scripts.ejs")%>
+    <script>
+      const jobForm = document.getElementById("job");
+
+      jobForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const formData = {
+          fullName: document.querySelector("#fullname").value,
+          email: document.querySelector("#email").value,
+          phone: document.querySelector("#phone").value,
+          birthDate: document.querySelector("#birth-date").value,
+          nationalId: document.querySelector("#national-id").value,
+          birthPlace: document.querySelector("#birth-place").value,
+          specialization: document.querySelector("#specialization").value,
+          qualification: document.querySelector("#qualification").value,
+          graduationYear: document.querySelector("#graduation-year").value,
+          otherStudies: document.querySelector("#other-studies").value,
+          university: document.querySelector("#university").value,
+          gender: document.querySelector("#gender").value,
+          patientReligion: document.querySelector("#patient-religion").value,
+          patientGender: document.querySelector("#patient-gender").value,
+          workingHour: document.querySelector("#working-hour").value,
+          religion: document.querySelector("#religion").value,
+          currentResidenceAddress: document.querySelector(
+            "#current-residence-address"
+          ).value,
+          previousWorkplaces: document.querySelector("#previous-workplaces")
+            .value,
+        };
+
+        console.log(formData);
+
+        fetch("/job/doctor", {
+          method: "POST",
+          body: JSON.stringify(formData),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.success) {
+              alert("Job Application Has Been sent successfully!");
+            } else {
+              alert("Job Application failed. Please try again.");
+            }
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            alert("An error occurred. Please try again.");
+          });
+      });
+    </script>
+  </body>
+</html>

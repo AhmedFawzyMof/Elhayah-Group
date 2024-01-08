@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./n&f/head.ejs') %>
+  </head>
+  <body dir="rtl">
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+      <%- include("./n&f/nav.ejs") %>
+      <!-- Page Wrapper -->
+      <div class="page-wrapper">
+        <!-- Page Content -->
+        <div class="content container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="table-responsive">
+                <table class="table table-striped custom-table mb-0 datatable">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>الاسم</th>
+                      <th>الاسم العربي</th>
+                      <th>الوصف</th>
+                      <th>الوصف عربي</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% services.forEach(service => { %>
+                    <tr>
+                      <td><%= service.id %></td>
+                      <td><%= service.name%></td>
+                      <td><%= service.nameAr %></td>
+                      <td><%= service.description %></td>
+                      <td><%= service.descriptionAr %></td>
+                    </tr>
+                    <% }); %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /Page Content -->
+      </div>
+      <!-- /Page Wrapper -->
+    </div>
+    <!-- /Main Wrapper -->
+
+    <%- include('./n&f/scripts.ejs') %>
+  </body>
+</html>

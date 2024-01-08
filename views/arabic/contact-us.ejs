@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>ELHAYAT</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/css/faq.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link href="/assets/css/style.css" rel="stylesheet" media="screen" />
+    <link href="/assets/css/chblue.css" rel="stylesheet" media="screen" />
+    <link
+      href="/assets/css/theme-responsive.css"
+      rel="stylesheet"
+      media="screen"
+    />
+    <link
+      href="/assets/css/dtb/jquery.dataTables.min.css"
+      rel="stylesheet"
+      media="screen"
+    />
+    <link href="/assets/css/select2.min.css" rel="stylesheet" media="screen" />
+    <link href="/assets/css/toastr.min.css" rel="stylesheet" media="screen" />
+    <link rel="stylesheet" href="/asset/css/styles.css" />
+
+    <!-- Font Awesome -->
+    <link rel="icon" type="image/x-icon" href="/img/logo.ico" />
+    <!--- Style css -->
+
+    <script type="text/javascript" src="/assets/js/jquery.js"></script>
+    <script
+      type="text/javascript"
+      src="/assets/js/jquery-ui.1.10.4.min.js"
+    ></script>
+    <script type="text/javascript" src="/assets/js/toastr.min.js"></script>
+    <script type="text/javascript" src="/assets/js/modernizr.js"></script>
+    <link rel="stylesheet" href="/css/faq.css" />
+
+    <!-- Livewire Styles -->
+    <style>
+      [wire\:loading],
+      [wire\:loading\.delay],
+      [wire\:loading\.inline-block],
+      [wire\:loading\.inline],
+      [wire\:loading\.block],
+      [wire\:loading\.flex],
+      [wire\:loading\.table],
+      [wire\:loading\.grid],
+      [wire\:loading\.inline-flex] {
+        display: none;
+      }
+
+      [wire\:loading\.delay\.shortest],
+      [wire\:loading\.delay\.shorter],
+      [wire\:loading\.delay\.short],
+      [wire\:loading\.delay\.long],
+      [wire\:loading\.delay\.longer],
+      [wire\:loading\.delay\.longest] {
+        display: none;
+      }
+
+      [wire\:offline] {
+        display: none;
+      }
+
+      [wire\:dirty]:not(textarea):not(input):not(select) {
+        display: none;
+      }
+
+      input:-webkit-autofill,
+      select:-webkit-autofill,
+      textarea:-webkit-autofill {
+        animation-duration: 50000s;
+        animation-name: livewireautofill;
+      }
+
+      @keyframes livewireautofill {
+        from {
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="layout">
+      <%- include("../navandfooter/arnav.ejs") %>
+
+      <main>
+        <section id="contact" class="contact py">
+          <div class="container grid">
+            <div class="contact-left">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3452.125695968834!2d31.299379375555507!3d30.090586274900435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzDCsDA1JzI2LjEiTiAzMcKwMTgnMDcuMCJF!5e0!3m2!1sen!2seg!4v1704640107499!5m2!1sen!2seg"
+                width="600"
+                height="450"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+              ></iframe>
+            </div>
+            <div class="contact-right">
+              <div class="contact-head">
+                <h3 style="text-transform: uppercase; direction: rtl">
+                  اتصل بنا
+                </h3>
+                <p
+                  class="text text-md"
+                  style="text-transform: capitalize; direction: rtl"
+                >
+                  الحياة جروب دائما جاهزة للرد على جميع المقترحات التي تهمك نحو
+                  الخدمة المنزلية، وذلك من خلال موظفي الخدمة في جميع أوقات العمل
+                  .. ! من فضلك سجل مقترحاتك في صندوق الرسائل ، وسيتم عرضها على
+                  المختص
+                </p>
+              </div>
+              <form id="contactForm">
+                <div class="form-element">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="اسمك"
+                    id="name"
+                    name="name"
+                  />
+                </div>
+                <div class="form-element">
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="بريدك الالكتروني"
+                    id="email"
+                    name="email"
+                  />
+                </div>
+                <div class="form-element">
+                  <input
+                    type="tel"
+                    class="form-control"
+                    placeholder="هاتفك"
+                    id="phone"
+                    name="phone"
+                  />
+                </div>
+                <div class="form-element">
+                  <textarea
+                    rows="5"
+                    placeholder="رسالتك"
+                    class="form-control"
+                    id="message"
+                    name="message"
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn btn-white btn-submit">
+                  <i class="fas fa-arrow-right"></i> send message
+                </button>
+              </form>
+            </div>
+          </div>
+        </section>
+      </main>
+      <%- include("../navandfooter/footerar.ejs") %>
+    </div>
+    <%- include("../navandfooter/scripts.ejs") %>
+    <script>
+      const booking = document.getElementById("contactForm");
+      booking.addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent the form from submitting normally
+
+        const name = booking.querySelector("#name").value;
+        const phone = booking.querySelector("#phone").value;
+        const email = booking.querySelector("#email").value;
+        const message = booking.querySelector("#message").value;
+
+        const form = {
+          name: name,
+          phone: phone,
+          email: email,
+          message: message,
+        };
+
+        fetch("/contact", {
+          method: "POST",
+          body: JSON.stringify(form),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.success) {
+              alert("Message Has Been sent successfully!");
+            } else {
+              alert("contact failed. Please try again.");
+            }
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            alert("An error occurred. Please try again.");
+          });
+      });
+    </script>
+    <script type="text/javascript">
+      jQuery(document).ready(function () {
+        jQuery(".tp-banner").show().revolution({
+          dottedOverlay: "none",
+          delay: 5000,
+          startwidth: 1170,
+          startheight: 480,
+          minHeight: 250,
+          navigationType: "none",
+          navigationArrows: "solo",
+          navigationStyle: "preview1",
+        });
+      });
+    </script>
+    <!-- Livewire Scripts -->
+
+    <script
+      src="/livewire/livewire.js?id=c69d0f2801c01fcf8166"
+      data-turbo-eval="false"
+      data-turbolinks-eval="false"
+    ></script>
+    <script data-turbo-eval="false" data-turbolinks-eval="false">
+      if (window.livewire) {
+        console.warn(
+          "Livewire: It looks like Livewire's @livewireScripts JavaScript assets have already been loaded. Make sure you aren't loading them twice."
+        );
+      }
+
+      window.livewire = new Livewire();
+      window.livewire.devTools(true);
+      window.Livewire = window.livewire;
+      window.livewire_app_url = "";
+      window.livewire_token = "FyP8FMsHpXcCXjH1Avh8npozXmt8dVNC83w6pNfi";
+
+      /* Make sure Livewire loads first. */
+      if (window.Alpine) {
+        /* Defer showing the warning so it doesn't get buried under downstream errors. */
+        document.addEventListener("DOMContentLoaded", function () {
+          setTimeout(function () {
+            console.warn(
+              "Livewire: It looks like AlpineJS has already been loaded. Make sure Livewire's scripts are loaded before Alpine.\\n\\n Reference docs for more info: http://laravel-livewire.com/docs/alpine-js"
+            );
+          });
+        });
+      }
+
+      /* Make Alpine wait until Livewire is finished rendering to do its thing. */
+      window.deferLoadingAlpine = function (callback) {
+        window.addEventListener("livewire:load", function () {
+          callback();
+        });
+      };
+
+      let started = false;
+
+      window.addEventListener("alpine:initializing", function () {
+        if (!started) {
+          window.livewire.start();
+
+          started = true;
+        }
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        if (!started) {
+          window.livewire.start();
+
+          started = true;
+        }
+      });
+    </script>
+    <script src="/js/faq.js"></script>
+  </body>
+</html>

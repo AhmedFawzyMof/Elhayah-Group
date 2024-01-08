@@ -1,0 +1,343 @@
+<% if(eng) {%>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>ELHAYAT</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/css/faq.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link href="/assets/css/style.css" rel="stylesheet" media="screen" />
+    <link href="/assets/css/chblue.css" rel="stylesheet" media="screen" />
+    <link
+      href="/assets/css/theme-responsive.css"
+      rel="stylesheet"
+      media="screen"
+    />
+    <link
+      href="/assets/css/dtb/jquery.dataTables.min.css"
+      rel="stylesheet"
+      media="screen"
+    />
+    <link href="/assets/css/select2.min.css" rel="stylesheet" media="screen" />
+    <link href="/assets/css/toastr.min.css" rel="stylesheet" media="screen" />
+    <link rel="stylesheet" href="/asset/css/styles.css" />
+
+    <!-- Font Awesome -->
+    <link rel="icon" type="image/x-icon" href="/img/logo.ico" />
+    <!--- Style css -->
+
+    <script type="text/javascript" src="/assets/js/jquery.js"></script>
+    <script
+      type="text/javascript"
+      src="/assets/js/jquery-ui.1.10.4.min.js"
+    ></script>
+    <script type="text/javascript" src="/assets/js/toastr.min.js"></script>
+    <script type="text/javascript" src="/assets/js/modernizr.js"></script>
+    <!-- Livewire Styles -->
+    <style>
+      [wire\:loading],
+      [wire\:loading\.delay],
+      [wire\:loading\.inline-block],
+      [wire\:loading\.inline],
+      [wire\:loading\.block],
+      [wire\:loading\.flex],
+      [wire\:loading\.table],
+      [wire\:loading\.grid],
+      [wire\:loading\.inline-flex] {
+        display: none;
+      }
+
+      [wire\:loading\.delay\.shortest],
+      [wire\:loading\.delay\.shorter],
+      [wire\:loading\.delay\.short],
+      [wire\:loading\.delay\.long],
+      [wire\:loading\.delay\.longer],
+      [wire\:loading\.delay\.longest] {
+        display: none;
+      }
+
+      [wire\:offline] {
+        display: none;
+      }
+
+      [wire\:dirty]:not(textarea):not(input):not(select) {
+        display: none;
+      }
+
+      input:-webkit-autofill,
+      select:-webkit-autofill,
+      textarea:-webkit-autofill {
+        animation-duration: 50000s;
+        animation-name: livewireautofill;
+      }
+
+      @keyframes livewireautofill {
+        from {
+        }
+      }
+    </style>
+    <link rel="favicon" href="/images/favicon.png" />
+    <link
+      rel="stylesheet"
+      media="screen"
+      href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700"
+    />
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/css/font-awesome.min.css" />
+
+    <link
+      rel="stylesheet"
+      href="/assets/css/bootstrap-theme.css"
+      media="screen"
+    />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <style>
+      .img-responsive post-author-img {
+        border-radius: 20px;
+        box-shadow: 3px 3px 3px 2px #3333336b;
+      }
+      #head {
+        width: 100%;
+        height: 300px;
+        display: flex;
+        align-items: flex-end;
+        color: #fff;
+        background-image: url("/images/faqbg.jpg");
+        background-size: 100%;
+        background-repeat: no-repeat;
+        position: relative;
+      }
+      #head .bg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        background: #00f3ff73;
+        width: 100%;
+        height: 100%;
+        transform: translate(-50%, -50%);
+      }
+    </style>
+  </head>
+  <body>
+    <%-include("./navandfooter/nav.ejs") %>
+    <header id="head" class="secondary">
+      <div class="bg"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8">
+            <h1 style="color: #fff">Answering common questions</h1>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="topside">
+      <h1>Frequently Asked Questions</h1>
+      <div class="containerForFaq">
+        <div class="faq-container">
+          <div class="faq">
+            <h3
+              class="faq-title"
+              style="font-size: 1rem !important; padding: 0 !important"
+            >
+              Is the service implemented when requested ?
+            </h3>
+            <p class="faq-text">
+              Once the service is booked, the customer service team will contact
+              you and talk to you to confirm the service request, and you will
+              be notified.
+            </p>
+            <button class="faq-toggle">
+              <i class="fas fa-chevron-down"></i>
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="faq">
+            <h3
+              class="faq-title"
+              style="font-size: 1rem !important; padding: 0 !important"
+            >
+              Is it possible to get an invoice to present for my insurance ?
+            </h3>
+            <p class="faq-text">
+              Of course, we issue stamped tax invoices for any service we
+              provide, so that the customer can submit them to any party he
+              wants...
+            </p>
+            <button class="faq-toggle">
+              <i class="fas fa-chevron-down"></i>
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="faq">
+            <h3
+              class="faq-title"
+              style="font-size: 1rem !important; padding: 0 !important"
+            >
+              What are the home visit times ?
+            </h3>
+            <p class="faq-text">
+              We offer home visits around the clock, without interruption...
+              from eight in the morning until ten in the evening, daily except
+              for Friday
+            </p>
+            <button class="faq-toggle">
+              <i class="fas fa-chevron-down"></i>
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="faq">
+            <h3
+              class="faq-title"
+              style="font-size: 1rem !important; padding: 0 !important"
+            >
+              What are the services provided by elhayat Group ?
+            </h3>
+            <p class="faq-text">
+              elhayat Group provides all medical services at home (home
+              examination, home nursing, physiotherapy at home, home x-rays,
+              care for the elderly (sitters for the elderly), special medical
+              programs and medical analysis.
+            </p>
+            <button class="faq-toggle">
+              <i class="fas fa-chevron-down"></i>
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+        <div class="otherside">
+          <img src="/images/news-2.jpg" />
+          <div class="contactus">
+            <h2>contact us</h2>
+            <a href="tel:01017088930"><i class="fa fa-phone"></i>01017088930</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <main>
+      <section id="contact" class="contact py">
+        <div class="container grid">
+          <div class="contact-left">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3452.125695968834!2d31.299379375555507!3d30.090586274900435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzDCsDA1JzI2LjEiTiAzMcKwMTgnMDcuMCJF!5e0!3m2!1sen!2seg!4v1704640107499!5m2!1sen!2seg"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+            ></iframe>
+          </div>
+          <div class="contact-right">
+            <div class="contact-head">
+              <h3 style="text-transform: uppercase">contact us</h3>
+              <p class="text text-md" style="text-transform: capitalize">
+                elhayat group is always ready to respond to all proposals that
+                interest you regarding home service, through service employees
+                at all working hours..! please register your suggestions in the
+                message box, and they will be shown to the specialist.
+              </p>
+            </div>
+            <form id="contactForm">
+              <div class="form-element">
+                <input
+                  required
+                  type="text"
+                  class="form-control"
+                  placeholder="your name"
+                  id="name"
+                  name="name"
+                />
+              </div>
+              <div class="form-element">
+                <input
+                  required
+                  type="email"
+                  class="form-control"
+                  placeholder="your email"
+                  id="email"
+                  name="email"
+                />
+              </div>
+              <div class="form-element">
+                <input
+                  required
+                  type="tel"
+                  class="form-control"
+                  placeholder="your email"
+                  id="phone"
+                  name="phone"
+                />
+              </div>
+              <div class="form-element">
+                <textarea
+                  required
+                  rows="5"
+                  placeholder="your message"
+                  class="form-control"
+                  id="message"
+                  name="message"
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-white btn-submit">
+                <i class="fas fa-arrow-right"></i> send message
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="/js/faq.js"></script>
+    <script>
+      const booking = document.getElementById("contactForm");
+      booking.addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent the form from submitting normally
+
+        const name = booking.querySelector("#name").value;
+        const phone = booking.querySelector("#phone").value;
+        const email = booking.querySelector("#email").value;
+        const message = booking.querySelector("#message").value;
+
+        const form = {
+          name: name,
+          phone: phone,
+          email: email,
+          message: message,
+        };
+
+        fetch("/contact", {
+          method: "POST",
+          body: JSON.stringify(form),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.success) {
+              alert("Message Has Been sent successfully!");
+            } else {
+              alert("contact failed. Please try again.");
+            }
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            alert("An error occurred. Please try again.");
+          });
+      });
+    </script>
+    <%-include("./navandfooter/footer.ejs") %>
+    <%-include("./navandfooter/scripts.ejs") %>
+  </body>
+</html>
+<% }else { %> <%- include("./arabic/faq.ejs") %> <% } %>

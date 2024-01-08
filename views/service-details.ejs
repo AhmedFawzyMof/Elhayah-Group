@@ -1,0 +1,230 @@
+<% if(eng) { %>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta charset="utf-8" />
+    <title>ELHAYAT</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/img/favicon.png" />
+    <link href="/assets/css/style.css" rel="stylesheet" media="screen" />
+    <link href="/assets/css/chblue.css" rel="stylesheet" media="screen" />
+    <link
+      href="/assets/css/theme-responsive.css"
+      rel="stylesheet"
+      media="screen"
+    />
+    <link
+      href="/assets/css/dtb/jquery.dataTables.min.css"
+      rel="stylesheet"
+      media="screen"
+    />
+    <link href="/assets/css/select2.min.css" rel="stylesheet" media="screen" />
+    <link href="/assets/css/toastr.min.css" rel="stylesheet" media="screen" />
+    <script type="text/javascript" src="/assets/js/jquery.js"></script>
+    <script
+      type="text/javascript"
+      src="/assets/js/jquery-ui.1.10.4.min.js"
+    ></script>
+    <script type="text/javascript" src="/assets/js/toastr.min.js"></script>
+    <script type="text/javascript" src="/assets/js/modernizr.js"></script>
+    <style>
+      .content_info {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        margin-bottom: 150px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="layout">
+      <%- include("./navandfooter/nav.ejs") %>
+      <div class="section-title-01 honmob">
+        <div class="bg_parallax image_01_parallax"></div>
+        <div class="opacy_bg_02">
+          <div class="container">
+            <h1>EL-HEAYAH GROUP</h1>
+            <div class="crumbs">
+              <ul>
+                <li><a href="/">Home</a></li>
+                <li>/</li>
+                <li>EL-HEAYAH GROUP</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section class="content-central">
+        <div class="semiboxshadow text-center">
+          <img src="img/img-theme/shp.png" class="img-responsive" alt="" />
+        </div>
+        <div class="content_info">
+          <div class="paddings-mini">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-8 single-blog">
+                  <div class="post-item">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="post-header">
+                          <div
+                            class="post-format-icon post-format-standard"
+                            style="margin-top: -10px"
+                          >
+                            <img
+                              src="/images/services/thumbnails/<%=service.thumbnail%>"
+                              style="
+                                width: 100px;
+                                border-radius: 10px;
+                                box-shadow: -5px 5px 10px 0px #33333373;
+                              "
+                            />
+                          </div>
+                          <div class="post-info-wrap">
+                            <h2 class="post-title">
+                              <a
+                                href="#"
+                                title="Post Format: Standard"
+                                rel="bookmark"
+                                >EL-HEAYAH GROUP: <%=service.name%></a
+                              >
+                            </h2>
+                            <div class="post-meta" style="height: 10px"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="post-content">
+                          <h3><%=service.name%></h3>
+                          <p><%=service.description%></p>
+                        </div>
+                        <div class="post-content">
+                          <h3><%=service.nameAr%></h3>
+                          <p><%=service.descriptionAr%></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <aside class="widget" style="margin-top: 18px">
+                    <form id="Booking" class="panel panel-default">
+                      <div class="panel-heading">Book <%=service.name%></div>
+                      <div
+                        class="panel-body"
+                        style="display: flex; flex-direction: column; gap: 20px"
+                      >
+                        <input
+                          required
+                          style="
+                            border: none;
+                            border-bottom: 2px solid #333;
+                            border-radius: 5px;
+                          "
+                          type="text"
+                          name="name"
+                          id="name"
+                          placeholder="Name"
+                        />
+                        <input
+                          required
+                          style="
+                            border: none;
+                            border-bottom: 2px solid #333;
+                            border-radius: 5px;
+                          "
+                          type="tel"
+                          name="phone"
+                          id="phone"
+                          placeholder="Phone"
+                        />
+                        <input
+                          required
+                          style="
+                            border: none;
+                            border-bottom: 2px solid #333;
+                            border-radius: 5px;
+                          "
+                          type="email"
+                          name="email"
+                          id="email"
+                          placeholder="Email"
+                        />
+                        <input
+                          required
+                          style="
+                            border: none;
+                            border-bottom: 2px solid #333;
+                            border-radius: 5px;
+                          "
+                          type="date"
+                          name="date"
+                          id="date"
+                        />
+                        <select
+                          required
+                          style="
+                            border: none;
+                            border-bottom: 2px solid #333;
+                            border-radius: 5px;
+                            height: 30px;
+                          "
+                          name="religion"
+                          id="religion"
+                        >
+                          <option value="مسلم">Muslim</option>
+                          <option value="مسيحي">Christian</option>
+                        </select>
+                        <select
+                          required
+                          style="
+                            border: none;
+                            border-bottom: 2px solid #333;
+                            border-radius: 5px;
+                            height: 30px;
+                          "
+                          name="gender"
+                          id="gender"
+                        >
+                          <option value="ذكر">Male</option>
+                          <option value="أنثى">Female</option>
+                        </select>
+
+                        <input
+                          required
+                          type="hidden"
+                          name="service"
+                          id="service"
+                          value="<%=service.name%>"
+                        />
+                      </div>
+                      <div class="panel-footer">
+                        <input
+                          required
+                          type="submit"
+                          class="btn btn-primary"
+                          name="submit"
+                          value=" Book Now"
+                        />
+                      </div>
+                    </form>
+                  </aside>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <%- include('./navandfooter/footer.ejs')%>
+    </div>
+    <%- include('./navandfooter/scripts.ejs')%>
+    <script src="/js/site/book.js"></script>
+  </body>
+</html>
+<% } else { %> <%-include("./arabic/service-details.ejs")%> <% } %>

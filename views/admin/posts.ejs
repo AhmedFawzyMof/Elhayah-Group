@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./n&f/head.ejs') %>
+  </head>
+  <body dir="rtl">
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+      <%- include("./n&f/nav.ejs") %>
+      <!-- Page Wrapper -->
+      <div class="page-wrapper">
+        <!-- Page Content -->
+        <div class="content container-fluid">
+          <!-- Page Header -->
+          <div class="page-header">
+            <div class="row align-items-center">
+              <div class="col-auto float-right ml-auto">
+                <a
+                  href="#"
+                  class="btn add-btn"
+                  data-toggle="modal"
+                  data-target="#add_expense"
+                  ><i class="fa fa-plus"></i> Add Post</a
+                >
+              </div>
+            </div>
+          </div>
+          <!-- /Page Header -->
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="table-responsive">
+                <table class="table table-striped custom-table mb-0 datatable">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>عنوان</th>
+                      <th>مقال</th>
+                      <th>صورة</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% data.forEach(post => { %>
+                    <tr>
+                      <td><%= post.id %></td>
+                      <td><%= post.title%></td>
+                      <td><%= post.paragraph%></td>
+                      <td>
+                        <img
+                          src="data:image/png;base64,<%= post.image %>"
+                          style="height: 50px; width: 50px"
+                        />
+                      </td>
+                    </tr>
+                    <% }); %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /Page Content -->
+
+        <!-- Add Expense Modal -->
+        <form id="add_expense" class="modal custom-modal fade" role="dialog">
+          <div
+            class="modal-dialog modal-dialog-centered modal-lg"
+            role="document"
+          >
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Add Post</h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>عنوان</label>
+                        <input
+                          class="form-control"
+                          type="text"
+                          name="title"
+                          id="title"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>مقال</label>
+                        <input
+                          class="form-control"
+                          type="text"
+                          name="article"
+                          id="article"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>صورة</label>
+                        <input class="form-control" type="file" name="image" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="submit-section">
+                    <button class="btn btn-primary submit-btn">Submit</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- /Page Wrapper -->
+    </div>
+    <!-- /Main Wrapper -->
+
+    <script>
+      const add = document.querySelector("#add_expense");
+
+      add.addEventListener("submit", function (event) {
+        // Prevent the form from submitting normally
+        event.preventDefault();
+
+        // Construct a FormData instance
+        const title = add.querySelector("#title").value;
+        const article = add.querySelector("#article").value;
+        const form = {};
+
+        // Add a file
+        const fileField = add.querySelector('input[type="file"]');
+
+        // Convert image to base64 string
+        let reader = new FileReader();
+        reader.onload = function () {
+          let base64String = reader.result
+            .replace("data:", "")
+            .replace(/^.+,/, "");
+          form["title"] = title;
+          form["article"] = article;
+          form["image"] = base64String;
+          console.log(form);
+          // Add base64 string to form data
+          // Send the POST request
+          fetch("https://elhayahgroup.com/api/admin/add/post", {
+            method: "POST",
+            body: JSON.stringify(form),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          })
+            .then((response) => response.json())
+            .then((result) => location.reload())
+            .catch((error) => console.error("Error:", error));
+        };
+        reader.readAsDataURL(fileField.files[0]);
+      });
+    </script>
+    <%- include('./n&f/scripts.ejs') %>
+  </body>
+</html>

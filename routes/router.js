@@ -1,0 +1,20 @@
+const express = require("express");
+const router = express.Router();
+const controller = require("../controller/index.controller");
+
+router.get("/", controller.GetHomePage);
+router.get("/post/:id", controller.GetBlogPost);
+router.get("/lang/:lang", controller.SetLang);
+router.get("/service/:slug", controller.GetDetailsPage);
+router.get("/services", controller.GetServices);
+router.get("/job/:career", controller.JobPage);
+router.get("/faq", controller.FaqPage);
+router.get("/contact", controller.ContactPage);
+router.get("/about", controller.AboutPage);
+router.get("/book", controller.GetBookingPage);
+router.get("/blog", controller.GetBlogPage);
+router.post("/service/book", controller.BookFromService);
+router.post("/contact", controller.ContactUs);
+router.post("/job/nurse", controller.AddNurseJob);
+router.post("/job/doctor", controller.AddDoctorJob);
+module.exports = router;

@@ -1,0 +1,59 @@
+<% if (eng) { %>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ELHAYAT</title>
+    <link href="/css/style.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="/img/favicon.png" />
+    <link href="/assets/css/style.css" rel="stylesheet" media="screen" />
+    <link href="/assets/css/chblue.css" rel="stylesheet" media="screen" />
+    <link
+      href="/assets/css/theme-responsive.css"
+      rel="stylesheet"
+      media="screen"
+    />
+    <link
+      href="/assets/css/dtb/jquery.dataTables.min.css"
+      rel="stylesheet"
+      media="screen"
+    />
+    <link href="/assets/css/select2.min.css" rel="stylesheet" media="screen" />
+    <link href="/assets/css/toastr.min.css" rel="stylesheet" media="screen" />
+    <script type="text/javascript" src="/assets/js/jquery.js"></script>
+    <script
+      type="text/javascript"
+      src="/assets/js/jquery-ui.1.10.4.min.js"
+    ></script>
+    <script type="text/javascript" src="/assets/js/toastr.min.js"></script>
+    <script type="text/javascript" src="/assets/js/modernizr.js"></script>
+  </head>
+  <body>
+    <div id="layout">
+      <%- include("./navandfooter/nav.ejs") %>
+      <section id="Thepost">
+        <div class="title">
+          <h2><%= post.title %></h2>
+        </div>
+        <div class="image">
+          <img
+            src="data:image/png;base64,<%= post.image %>"
+            alt="<%=post.title %>"
+          />
+        </div>
+        <div>
+          <p
+            style="display: flex; align-items: center; justify-content: center"
+          >
+            <%= post.paragraph %>
+          </p>
+        </div>
+      </section>
+      <%- include("./navandfooter/footer.ejs") %>
+    </div>
+    <%-include("./navandfooter/scripts.ejs") %>
+  </body>
+</html>
+<% } else { %><%- include('./arabic/post.ejs') %><% } %>
