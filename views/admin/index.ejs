@@ -168,13 +168,13 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <% data.nurse.forEach(nurse => {%>
+                        <% data.doctor.forEach(doctor => {%>
                         <tr>
                           <td>
-                            <h2><a href="#"><%=nurse.fullname%></a></h2>
+                            <h2><a href="#"><%=doctor.fullname%></a></h2>
                           </td>
-                          <td><%=nurse.email%></td>
-                          <td><%=nurse.phone%></td>
+                          <td><%=doctor.email%></td>
+                          <td><%=doctor.phone%></td>
                         </tr>
                         <% }); %>
                       </tbody>
@@ -190,7 +190,61 @@
       <!-- /Page Wrapper -->
     </div>
     <!-- /Main Wrapper -->
-
+    <script>
+      if (!localStorage.getItem("NotificationsData")) {
+        localStorage.setItem(
+          "NotificationsData",
+          JSON.stringify({
+            Booking: [],
+            Contacts: [],
+            DoctorJob: [],
+            NurseJob: [],
+          })
+        );
+      }
+      function findNewData(oldObj, newObj) {
+        let result = [];
+        for (let key in newObj) {
+          if (newObj[key].length > oldObj[key].length) {
+            result.push(key);
+          }
+        }
+        return result;
+      }
+      let i = 0;
+      Notification.requestPermission().then((permission) => {
+        if (permission === "granted") {
+          setInterval(() => {
+            console.log(i++);
+          }, 1000);
+          setInterval(async () => {
+            const response = await fetch("/api/admin/notifications");
+            const notifications = await response.json();
+            const newData = findNewData(
+              JSON.parse(localStorage.getItem("NotificationsData")),
+              notifications.NotifcationData
+            );
+            if (newData.length > 0) {
+              localStorage.setItem(
+                "NotificationsData",
+                JSON.stringify(notifications.NotifcationData)
+              );
+            }
+            newData.forEach((data) => {
+              if (data == "Booking") {
+                new Notification("هناك حجز جديد");
+              } else if (data == "Contacts") {
+                new Notification("هناك طلب اتصال جديد");
+              } else if (data == "DoctorJob") {
+                new Notification("هناك طلب وظيفة طبيب جديد");
+              } else {
+                new Notification("هناك طلب جديد لوظيفة ممرضة");
+              }
+            });
+          }, 60000 * 2);
+        }
+      });
+    </script>
     <!-- jQuery -->
     <%- include('./n&f/scripts.ejs') %>
   </body>

@@ -3,7 +3,7 @@ const router = require("./routes/router");
 const cookieParser = require("cookie-parser");
 const app = express();
 const cors = require("cors");
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 const corsOptions = {
   origin: "*",
@@ -20,7 +20,7 @@ app.use("/", router);
 app.use(express.static("static"));
 
 // Api for admin
-const ApiRouter = require("./routes/api.router");
+const ApiRouter = require("./routes/admin.router");
 
 app.use("/api/admin", ApiRouter);
 

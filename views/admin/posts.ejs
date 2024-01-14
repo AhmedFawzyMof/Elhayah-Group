@@ -37,6 +37,7 @@
                       <th>عنوان</th>
                       <th>مقال</th>
                       <th>صورة</th>
+                      <th class="text-right">Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -50,6 +51,19 @@
                           src="data:image/png;base64,<%= post.image %>"
                           style="height: 50px; width: 50px"
                         />
+                      </td>
+                      <td class="text-center">
+                        <button
+                          style="
+                            background: none;
+                            border: none;
+                            font-size: 25px;
+                            color: red;
+                          "
+                          onclick="Delete('<%= post.id %>')"
+                        >
+                          <i class="fa fa-trash-o m-r-5"></i>
+                        </button>
                       </td>
                     </tr>
                     <% }); %>
@@ -166,6 +180,18 @@
         };
         reader.readAsDataURL(fileField.files[0]);
       });
+      async function Delete(id) {
+        const Delete = await fetch(`/api/admin/delete/posts/${id}`, {
+          method: "post",
+        });
+        const response = await Delete.json();
+        if (response.done) {
+          alert("deleted");
+          location.reload();
+        } else {
+          alert("something went wrong");
+        }
+      }
     </script>
     <%- include('./n&f/scripts.ejs') %>
   </body>

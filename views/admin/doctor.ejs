@@ -36,6 +36,7 @@
                       <th>وقت العمل المفضل</th>
                       <th>أماكن العمل السابقة</th>
                       <th>عنوان السكن الحالي</th>
+                      <th class="text-right">Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -60,6 +61,19 @@
                       <td><%= el['preferred-worktime'] %></td>
                       <td><%= el['previous-workplaces'] %></td>
                       <td><%= el['current-residence-address'] %></td>
+                      <td class="text-center">
+                        <button
+                          style="
+                            background: none;
+                            border: none;
+                            font-size: 25px;
+                            color: red;
+                          "
+                          onclick="Delete('<%= el.id %>')"
+                        >
+                          <i class="fa fa-trash-o m-r-5"></i>
+                        </button>
+                      </td>
                     </tr>
                     <% }); %>
                   </tbody>
@@ -72,7 +86,21 @@
       <!-- /Page Wrapper -->
     </div>
     <!-- /Main Wrapper -->
+    <script>
+      async function Delete(id) {
+        const Delete = await fetch(`/api/admin/delete/doctor/${id}`, {
+          method: "post",
+        });
+        const response = await Delete.json();
 
+        if (response.done) {
+          alert("deleted");
+          location.reload();
+        } else {
+          alert("something went wrong");
+        }
+      }
+    </script>
     <%- include('./n&f/scripts.ejs') %>
   </body>
 </html>

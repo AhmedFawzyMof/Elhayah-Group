@@ -25,7 +25,7 @@
                       <th>ديانة العميل</th>
                       <th>الخدمة</th>
                       <th>موعد</th>
-                      <!-- <th>الرسالة</th> -->
+                      <th class="text-right">Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -39,6 +39,19 @@
                       <td><%= el.religion %></td>
                       <td><%= el.service %></td>
                       <td><%= el.date %></td>
+                      <td class="text-center">
+                        <button
+                          style="
+                            background: none;
+                            border: none;
+                            font-size: 25px;
+                            color: red;
+                          "
+                          onclick="Delete('<%= el.id %>')"
+                        >
+                          <i class="fa fa-trash-o m-r-5"></i>
+                        </button>
+                      </td>
                     </tr>
                     <% }); %>
                   </tbody>
@@ -51,6 +64,21 @@
       <!-- /Page Wrapper -->
     </div>
     <!-- /Main Wrapper -->
+    <script>
+      async function Delete(id) {
+        const Delete = await fetch(`/api/admin/delete/booking/${id}`, {
+          method: "post",
+        });
+        const response = await Delete.json();
+
+        if (response.done) {
+          alert("deleted");
+          location.reload();
+        } else {
+          alert("something went wrong");
+        }
+      }
+    </script>
     <%- include('./n&f/scripts.ejs') %>
   </body>
 </html>
