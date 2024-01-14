@@ -87,11 +87,11 @@ const controller = {
     res.render("booking", { services: Services, eng: eng });
   },
   GetBlogPage: async function (req, res) {
-    const posts = await posts.GetAllPosts(db);
+    const Posts = await posts.GetAllPosts(db);
 
     const eng = EngOrAr(req);
 
-    res.render("blog.ejs", { posts: posts, eng: eng });
+    res.render("blog.ejs", { posts: Posts, eng: eng });
   },
   GetBlogPost: async function (req, res) {
     const id = req.params.id;
