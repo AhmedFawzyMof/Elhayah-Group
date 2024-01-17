@@ -1,6 +1,28 @@
 const express = require("express");
 const router = express.Router();
 const controller = require("../controller/admin.controller");
+const multer = require("multer");
+
+const services = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "./static/img/services");
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  },
+});
+
+const post = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "./static/img/posts");
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  },
+});
+
+const uploadPost = multer({ storage: post });
+const uploadService = multer({ storage: services });
 
 // Get Views
 router.get("/", controller.GetAllTables);
@@ -17,8 +39,12 @@ router.get("/notifications", controller.CheckForNotifcation);
 router.post("/login", controller.Login);
 
 // Add Or Edit New Record
-router.post("/services", controller.AddNewService);
-router.post("/add/post", controller.AddPost);
+router.post(
+  "/services",
+  uploadService.single("thumbnail"),
+  controller.AddNewService
+);
+router.post("/add/post", uploadPost.single("image"), controller.AddPost);
 
 // Delete Record
 router.post("/delete/posts/:id", controller.DeletePost);

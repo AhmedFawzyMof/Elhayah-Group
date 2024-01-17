@@ -18,6 +18,7 @@ function middleware(req, res, next) {
     console.log(err);
     res.clearCookie("authtoken");
     res.redirect("/api/admin/login");
+    return;
   }
 }
 
@@ -151,12 +152,18 @@ const controller = {
   AddPost: async (req, res, next) => {
     middleware(req, res, next);
     const post = req.body;
+    const file = req.file;
+    if (!file) {
+      return res.status(400).send("No File Uploaded");
+    }
+
+    post.image = file.path;
 
     const success = await posts.AddNewPosts(db, post);
     if (success) {
-      res.json({
-        done: true,
-      });
+      res.send(`<script>
+location.href = '/api/admin/posts'
+</script>`);
       return;
     }
     res.json({
@@ -200,11 +207,18 @@ const controller = {
     middleware(req, res, next);
     const service = req.body;
 
+    const file = req.file;
+    if (!file) {
+      return res.status(400).send("No File Uploaded");
+    }
+
+    service.thumbnail = file.path;
     const done = await services.AddService(db, service);
     if (done) {
-      return res.json({
-        success: true,
-      });
+      res.send(`<script>
+      location.href = '/api/admin/services'
+      </script>`);
+      return;
     }
     res.json({
       success: false,
@@ -216,7 +230,7 @@ const controller = {
 
     const id = req.params.id;
 
-    const success = await services.DeletePost(db, id);
+    const success = await services.DeleteService(db, id);
 
     if (success) {
       res.json({

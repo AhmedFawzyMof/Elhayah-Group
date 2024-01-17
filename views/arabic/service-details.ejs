@@ -31,6 +31,10 @@
     <script type="text/javascript" src="/assets/js/toastr.min.js"></script>
     <script type="text/javascript" src="/assets/js/modernizr.js"></script>
     <style>
+      @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap");
+      * {
+        font-family: Cairo;
+      }
       .content_info {
         position: relative;
         width: 100%;
@@ -172,7 +176,7 @@
                             style="margin-top: -10px"
                           >
                             <img
-                              src="/images/services/thumbnails/<%=service.thumbnail%>"
+                              src="<%=service.thumbnail%>"
                               style="
                                 width: 100px;
                                 border-radius: 10px;

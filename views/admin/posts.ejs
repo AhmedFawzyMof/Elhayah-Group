@@ -48,7 +48,7 @@
                       <td><%= post.paragraph%></td>
                       <td>
                         <img
-                          src="data:image/png;base64,<%= post.image %>"
+                          src="<%= post.image %>"
                           style="height: 50px; width: 50px"
                         />
                       </td>
@@ -76,7 +76,7 @@
         <!-- /Page Content -->
 
         <!-- Add Expense Modal -->
-        <form id="add_expense" class="modal custom-modal fade" role="dialog">
+        <div id="add_expense" class="modal custom-modal fade" role="dialog">
           <div
             class="modal-dialog modal-dialog-centered modal-lg"
             role="document"
@@ -94,7 +94,11 @@
                 </button>
               </div>
               <div class="modal-body">
-                <form>
+                <form
+                  action="/api/admin/add/post"
+                  method="post"
+                  enctype="multipart/form-data"
+                >
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group">
@@ -134,52 +138,13 @@
               </div>
             </div>
           </div>
-        </form>
+        </div>
       </div>
       <!-- /Page Wrapper -->
     </div>
     <!-- /Main Wrapper -->
 
     <script>
-      const add = document.querySelector("#add_expense");
-
-      add.addEventListener("submit", function (event) {
-        // Prevent the form from submitting normally
-        event.preventDefault();
-
-        // Construct a FormData instance
-        const title = add.querySelector("#title").value;
-        const article = add.querySelector("#article").value;
-        const form = {};
-
-        // Add a file
-        const fileField = add.querySelector('input[type="file"]');
-
-        // Convert image to base64 string
-        let reader = new FileReader();
-        reader.onload = function () {
-          let base64String = reader.result
-            .replace("data:", "")
-            .replace(/^.+,/, "");
-          form["title"] = title;
-          form["article"] = article;
-          form["image"] = base64String;
-          console.log(form);
-          // Add base64 string to form data
-          // Send the POST request
-          fetch("https://elhayahgroup.com/api/admin/add/post", {
-            method: "POST",
-            body: JSON.stringify(form),
-            headers: {
-              "Content-Type": "application/json",
-            },
-          })
-            .then((response) => response.json())
-            .then((result) => location.reload())
-            .catch((error) => console.error("Error:", error));
-        };
-        reader.readAsDataURL(fileField.files[0]);
-      });
       async function Delete(id) {
         const Delete = await fetch(`/api/admin/delete/posts/${id}`, {
           method: "post",

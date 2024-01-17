@@ -4,10 +4,7 @@ const posts = {
       const [posts, _] = await db.query("SELECT * FROM `posts`");
 
       posts.forEach((post) => {
-        let blob = post.image;
-        let buffer = Buffer.from(blob);
-        let base64String = buffer.toString("base64");
-        post.image = base64String;
+        post.image = post.image.replace("static", "");
       });
 
       return posts;
@@ -21,10 +18,7 @@ const posts = {
         id,
       ]);
       posts.forEach((post) => {
-        let blob = post.image;
-        let buffer = Buffer.from(blob);
-        let base64String = buffer.toString("base64");
-        post.image = base64String;
+        post.image = post.image.replace("static", "");
       });
 
       return posts[0];
@@ -36,12 +30,11 @@ const posts = {
     try {
       const title = post.title;
       const paragraph = post.article;
-      let base64String = post.image;
-      let buffer = Buffer.from(base64String, "base64");
+      const image = post.image;
 
       const [__, _] = await db.query(
         "INSERT INTO `posts`(`title`,`paragraph`,`image`) VALUES  (?,?,?)",
-        [title, paragraph, buffer]
+        [title, paragraph, image]
       );
       return true;
     } catch (err) {

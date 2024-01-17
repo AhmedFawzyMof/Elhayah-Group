@@ -29,6 +29,12 @@
     ></script>
     <script type="text/javascript" src="/assets/js/toastr.min.js"></script>
     <script type="text/javascript" src="/assets/js/modernizr.js"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap");
+      * {
+        font-family: Cairo;
+      }
+    </style>
   </head>
 
   <body>
@@ -117,7 +123,7 @@
                     <a href="/service/<%= s.slug %>"
                       ><img
                         style="width: 75px; height: 50px; border-radius: 5px"
-                        src="/images/services/thumbnails/<%= s.thumbnail %>"
+                        src="<%= s.thumbnail %>"
                         alt="<%= s.name %>"
                     /></a>
                   </li>
@@ -140,7 +146,7 @@
                 </div>
               </div>
               <div class="portfolioContainer" style="margin-top: -50px">
-                <% service.slice(16).forEach(s=> { %>
+                <% service.slice(service.length -4).forEach(s=> { %>
                 <div
                   class="col-xs-6 col-sm-4 col-md-3 hsgrids"
                   style="padding-right: 5px; padding-left: 5px"
@@ -149,7 +155,7 @@
                     <div class="img-hover">
                       <img
                         style="width: 100%; height: 170px"
-                        src="/images/services/thumbnails/<%= s.thumbnail %>"
+                        src="<%= s.thumbnail %>"
                         class="img-responsive"
                       />
                     </div>
@@ -176,7 +182,7 @@
               <div class="row" dir="rtl">
                 <div class="col-md-8">
                   <ul class="services-lines">
-                    <% service.slice(12).forEach(s => { %>
+                    <% service.slice(service.length -8).forEach(s => {%>
                     <li style="height: 200px">
                       <a href="/service/<%= s.slug %>">
                         <div class="item-service-line">
@@ -184,7 +190,7 @@
                             ><img
                               class="icon-img"
                               style="width: 100%; height: 122px"
-                              src="/images/services/thumbnails/<%= s.thumbnail %>"
+                              src="<%= s.thumbnail %>"
                           /></i>
                           <h5><%=s.nameAr%></h5>
                         </div>
@@ -232,7 +238,7 @@
                 <div class="img-hover">
                   <img
                     style="height: 188px; width: 100%"
-                    src="/images/services/thumbnails/<%= s.thumbnail %>"
+                    src="<%= s.thumbnail %>"
                     alt=""
                     class="img-responsive"
                   />

@@ -109,6 +109,9 @@ const controller = {
     } else {
       res.cookie("eng", "false");
     }
+
+    // get the last route before to redircting to it
+
     res.redirect("/");
   },
   ContactUs: async (req, res) => {

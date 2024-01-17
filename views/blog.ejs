@@ -37,7 +37,7 @@
         <a href="/post/<%= post.id %>" style="text-decoration: none">
           <div class="post">
             <img
-              src="data:image/png;base64,<%= post.image %>"
+              src="<%= post.image %>"
               alt="<%=
           post.title %>"
             />
@@ -54,48 +54,7 @@
             </p>
           </div>
         </a>
-        <% }) %> <% posts.forEach(post=> { %>
-        <a href="/post/<%= post.id %>" style="text-decoration: none">
-          <div class="post">
-            <img
-              src="data:image/png;base64,<%= post.image %>"
-              alt="<%=
-            post.title %>"
-            />
-            <p
-              style="
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin: 0;
-                margin-top: 20px;
-              "
-            >
-              <%= post.title %>
-            </p>
-          </div>
-        </a>
-        <% }) %> <% posts.forEach(post=> { %>
-        <a href="/post/<%= post.id %>" style="text-decoration: none">
-          <div class="post">
-            <img
-              src="data:image/png;base64,<%= post.image %>"
-              alt="<%=
-            post.title %>"
-            />
-            <p
-              style="
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin: 0;
-                margin-top: 20px;
-              "
-            >
-              <%= post.title %>
-            </p>
-          </div>
-        </a>
+
         <% }) %>
       </section>
       <%- include("./navandfooter/footer.ejs") %>

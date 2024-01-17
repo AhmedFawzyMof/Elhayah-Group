@@ -139,7 +139,7 @@ html {
   font-size: 16px;
 }
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Open Sans", Cairo;
   color: #544e4e;
   font-size: 1rem;
   font-weight: lighter;
@@ -155,7 +155,7 @@ h6 {
   margin: 0;
   color: #272727;
   font-weight: normal;
-  font-family: "Raleway", sans-serif;
+  font-family: "Raleway", Cairo;
   -webkit-font-smoothing: antialiased;
 }
 h1,
@@ -2571,7 +2571,7 @@ hr.separator:before {
   border-bottom: 5px solid #fc4242;
 }
 .ui-progress span.ui-label {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Open Sans", Cairo;
   font-weight: 300;
   text-transform: uppercase;
   font-size: 18px;
@@ -4174,7 +4174,7 @@ i.fa-truck {
 #example,
 #example1,
 #example2 {
-  font-family: sans-serif;
+  font-family: Cairo;
   color: #544e4e;
   font-size: 14px;
   font-weight: normal;
@@ -4220,7 +4220,7 @@ i.fa-truck {
 }
 #example1 tr td,
 #example2 tr td {
-  font-family: sans-serif;
+  font-family: Cairo;
   font-size: 12px;
 }
 .select2,
@@ -4284,7 +4284,7 @@ i.fa-truck {
 }
 
 .skin_base h2 {
-  font-family: sans-serif;
+  font-family: Cairo;
 }
 
 .ptext p {

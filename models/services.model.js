@@ -23,7 +23,9 @@ const services = {
   GetAllServices: async (db) => {
     try {
       const [services, _] = await db.query("SELECT * FROM services");
-
+      services.forEach((service) => {
+        service.thumbnail = service.thumbnail.replace("static", "");
+      });
       return services;
     } catch (err) {
       console.error(err);
@@ -36,7 +38,9 @@ const services = {
         "SELECT * FROM `services` where slug = ?;",
         slug
       );
-
+      service.forEach((service) => {
+        service.thumbnail = service.thumbnail.replace("static", "");
+      });
       return service[0];
     } catch (err) {
       console.error(err);
