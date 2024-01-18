@@ -142,8 +142,8 @@
                   <hr class="tall" />
                 </div>
               </div>
-              <div class="portfolioContainer" style="margin-top: -50px">
-                <% service.slice(service.length -4).forEach(s=> { %>
+              <div class="Container" style="margin-top: -50px">
+                <% service.forEach(s=> { %>
                 <div
                   class="col-xs-6 col-sm-4 col-md-3 hsgrids"
                   style="padding-right: 5px; padding-left: 5px"
@@ -171,89 +171,6 @@
                 <% }) %>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="content_info">
-          <div class="bg-dark color-white border-top">
-            <div class="container">
-              <div class="row">
-                <div class="col-md-4">
-                  <div class="services-lines-info">
-                    <h2>WELCOME TO EL-HEAYAH GROUP</h2>
-                    <p class="lead">
-                      Book best services at one place.
-                      <span class="line"></span>
-                    </p>
-
-                    <p>Find a wide variety of medical services.</p>
-                  </div>
-                </div>
-                <div class="col-md-8">
-                  <ul class="services-lines">
-                    <% service.slice(service.length -8).forEach(s => {%>
-                    <li style="height: 200px">
-                      <a href="/service/<%= s.slug %>">
-                        <div class="item-service-line">
-                          <i class="fa"
-                            ><img
-                              class="icon-img"
-                              style="width: 100%; height: 122px"
-                              src="<%= s.thumbnail %>"
-                          /></i>
-                          <h5><%=s.name%></h5>
-                        </div>
-                      </a>
-                    </li>
-                    <% }) %>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div style="margin-bottom: 150px">
-          <div class="container">
-            <div class="row">
-              <div class="titles">
-                <h2><span>EL-HEAYAH GROUP</span>Services</h2>
-                <hr class="tall" />
-              </div>
-            </div>
-          </div>
-          <div id="boxes-carousel" style="padding-bottom: 20px">
-            <%service.forEach((s)=> {%>
-            <div
-              style="
-                margin: 5px;
-                box-shadow: -4px 5px 5px #3333338c;
-                border-radius: 15px;
-                height: 350px;
-                overflow: hidden;
-              "
-            >
-              <a class="g-list" href="/service/<%=s.slug%>">
-                <div class="img-hover">
-                  <img
-                    style="height: 188px; width: 100%"
-                    src="<%= s.thumbnail %>"
-                    alt=""
-                    class="img-responsive"
-                  />
-                </div>
-
-                <div class="info-gallery">
-                  <h3><%= s.name %></h3>
-                  <hr class="separator" />
-                  <p><%= s.nameAr %></p>
-                  <div class="content-btn">
-                    <a href="/service/<%= s.slug  %>" class="btn btn-primary"
-                      >Book Now</a
-                    >
-                  </div>
-                </div>
-              </a>
-            </div>
-            <% }) %>
           </div>
         </div>
       </section>
