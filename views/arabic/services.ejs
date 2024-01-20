@@ -7,6 +7,11 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/img/favicon.ico" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
     <link href="/assets/css/style.css" rel="stylesheet" media="screen" />
     <link href="/assets/css/chblue.css" rel="stylesheet" media="screen" />
     <link rel="stylesheet" href="/css/style.css" />
@@ -120,8 +125,7 @@
 
         <div class="box-container">
           <div class="box-container">
-            <% for( let i = 0; i < services.length; i++ ) { const service =
-            services[i] %>
+            <% services.splice(services.length - 15).forEach(service => { %>
             <div class="box">
               <div class="image">
                 <img src="<%=service.thumbnail%>" alt="" />
@@ -134,7 +138,7 @@
                 </a>
               </div>
             </div>
-            <% } %>
+            <% }); %>
           </div>
         </div>
       </section>
