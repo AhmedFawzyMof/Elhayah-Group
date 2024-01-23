@@ -41,7 +41,6 @@ const services = {
       service.forEach((service) => {
         service.thumbnail = service.thumbnail.replace("static", "");
       });
-      console.log(service);
       return service[0];
     } catch (err) {
       console.error(err);
