@@ -33,27 +33,76 @@
     ></script>
     <script type="text/javascript" src="/assets/js/toastr.min.js"></script>
     <script type="text/javascript" src="/assets/js/modernizr.js"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap");
+      * {
+        font-family: Cairo;
+      }
+      .post-box {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 10px;
+        background-color: #fff;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+      }
+
+      .post-article {
+        font-size: 16px;
+        line-height: 1.5;
+        margin-top: 10px;
+      }
+
+      .post-image {
+        max-width: 100%;
+        margin-top: 10px;
+      }
+      pre {
+        font-family: Cairo, sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+        overflow-x: hidden;
+        word-wrap: break-word;
+        white-space: pre-wrap;
+        background: none;
+        border: none;
+        direction: rtl;
+      }
+      @media (max-width: 750px) {
+        .post-box {
+          width: 95%;
+        }
+      }
+    </style>
   </head>
   <body>
-    <div id="layout">
-      <%- include("./navandfooter/nav.ejs") %>
-      <section id="Thepost">
-        <div class="title">
-          <h2><%= post.title %></h2>
-        </div>
-        <div class="image">
-          <img src="<%= post.image %>" alt="<%=post.title %>" />
-        </div>
-        <div>
-          <p
-            style="display: flex; align-items: center; justify-content: center"
-          >
-            <%= post.paragraph %>
-          </p>
-        </div>
-      </section>
-      <%- include("./navandfooter/footer.ejs") %>
+    <%- include("./navandfooter/nav.ejs") %>
+    <div class="post-box">
+      <div
+        class="post-header"
+        style="display: flex; align-items: center; justify-content: center"
+      >
+        <h2><%= post.title %></h2>
+      </div>
+      <div
+        class="post-article"
+        style="color: #333; font-size: 17.5px; font-weight: 500"
+      >
+        <pre>
+          <%= post.paragraph %>
+        </pre>
+        <img
+          class="post-image"
+          src="<%= post.image %>"
+          alt="<%=post.title %>"
+        />
+      </div>
     </div>
+    <%- include("./navandfooter/footer.ejs") %>
     <%-include("./navandfooter/scripts.ejs") %>
   </body>
 </html>
