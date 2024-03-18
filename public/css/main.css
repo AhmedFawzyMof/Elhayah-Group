@@ -1,0 +1,188 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+:root {
+  --main-color: #3ed0f5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: "Roboto", "Cairo";
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  padding: 0 15px;
+  direction: rtl;
+}
+
+.logo img {
+  width: 50px;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul.menu.phone {
+  direction: ltr;
+  position: absolute;
+  top: 55px;
+  left: 5px;
+  width: 250px;
+  display: grid;
+  gap: 10px;
+  box-shadow: 0 0 3px #33333370;
+  padding: 10px 15px;
+  border-radius: 5px;
+  list-style: none;
+  font-size: 16px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 400ms ease;
+}
+
+ul.menu.phone.show {
+  opacity: 1;
+  visibility: visible;
+  z-index: 10;
+}
+
+.menu.phone li a {
+  color: #333;
+}
+
+.menu.phone li {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  padding: 0 10px;
+}
+
+.menu.phone li a {
+  width: 100%;
+}
+
+.menu.phone .dropbtn {
+  height: 30px;
+  background: none;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  font-size: 16px;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.menu.phone button.dropbtn i {
+  margin-left: 5px;
+  transition: all ease 0.3s;
+}
+
+.menu.phone li:hover {
+  background-color: var(--main-color);
+}
+
+.menu.phone button.dropbtn:hover {
+  background-color: var(--main-color);
+  color: #fff;
+}
+
+.menu.phone li:hover a {
+  color: #fff;
+}
+
+.jobs {
+  display: none;
+}
+
+.jobs.show {
+  display: block;
+}
+
+.jobs li:first-child {
+  margin-bottom: 10px;
+}
+
+button.menuBtn {
+  width: 35px;
+  height: 35px;
+  border-radius: 50px;
+  border: none;
+  box-shadow: 0 0 3px #3333336b;
+  font-size: 30px;
+  display: grid;
+  place-items: center;
+  background: none;
+  cursor: pointer;
+}
+
+@media (min-width: 850px) {
+  .menuBtn {
+    display: none !important;
+  }
+  ul.menu.phone {
+    display: none;
+  }
+  ul.menu.pc {
+    display: flex;
+    direction: ltr;
+    list-style: none;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    font-size: 14px;
+    position: relative;
+  }
+
+  ul.menu.pc .dropbtn {
+    font-size: 14px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  ul.menu.pc .dropbtn i {
+    transition: all 0.3s ease;
+  }
+
+  ul.menu.pc .dropbtn:hover {
+    color: var(--main-color);
+  }
+
+  .menu.pc .jobs.show {
+    position: absolute;
+    top: 40px;
+    left: 151px;
+    box-shadow: 0 0 3px #33333359;
+    padding: 10px 20px;
+    border-radius: 5px;
+    width: 150px;
+    display: grid;
+    gap: 20px;
+    background: #fff;
+  }
+
+  .menu.pc li a {
+    color: #333;
+    transition: all 0.3s ease;
+  }
+  .menu.pc li a:hover {
+    color: var(--main-color);
+  }
+}

@@ -1,200 +1,37 @@
-<% if(eng) { %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <title>ELHAYAT</title>
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="/img/favicon.ico" />
+    <title>Al-Hayat Group</title>
+    <link rel="stylesheet" href="/css/main.css" />
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
-    <link href="/assets/css/style.css" rel="stylesheet" media="screen" />
-    <link href="/assets/css/chblue.css" rel="stylesheet" media="screen" />
-    <link
-      href="/assets/css/theme-responsive.css"
-      rel="stylesheet"
-      media="screen"
-    />
-    <link
-      href="/assets/css/dtb/jquery.dataTables.min.css"
-      rel="stylesheet"
-      media="screen"
-    />
-    <link href="/assets/css/select2.min.css" rel="stylesheet" media="screen" />
-    <link href="/assets/css/toastr.min.css" rel="stylesheet" media="screen" />
-    <script type="text/javascript" src="/assets/js/jquery.js"></script>
-    <script
-      type="text/javascript"
-      src="/assets/js/jquery-ui.1.10.4.min.js"
-    ></script>
-    <script type="text/javascript" src="/assets/js/toastr.min.js"></script>
-    <script type="text/javascript" src="/assets/js/modernizr.js"></script>
+    <link rel="stylesheet" href="/css/home.css" />
+    <script defer src="/js/nav.js"></script>
   </head>
-
   <body>
-    <div id="layout">
-      <%- include("./navandfooter/nav.ejs") %>
-      <section class="tp-banner-container">
-        <div class="tp-banner">
-          <ul>
-            <li
-              data-transition="slidevertical"
-              data-slotamount="1"
-              data-masterspeed="1000"
-              data-saveperformance="off"
-              data-title="Slide"
-            >
-              <img
-                src="/img/slide/1.jpg"
-                alt="fullslide1"
-                data-bgposition="center center"
-                data-kenburns="on"
-                data-duration="6000"
-                data-ease="Linear.easeNone"
-                data-bgfit="130"
-                data-bgfitend="100"
-                data-bgpositionend="right center"
-              />
-            </li>
-            <li
-              data-transition="slidevertical"
-              data-slotamount="1"
-              data-masterspeed="1000"
-              data-saveperformance="off"
-              data-title="Slide"
-            >
-              <img
-                src="/img/slide/2.jpg"
-                alt="fullslide1"
-                data-bgposition="center center"
-                data-kenburns="on"
-                data-duration="6000"
-                data-ease="Linear.easeNone"
-                data-bgfit="130"
-                data-bgfitend="100"
-                data-bgpositionend="right center"
-              />
-            </li>
-          </ul>
-          <div class="tp-bannertimer"></div>
-        </div>
-        <div class="filter-title">
-          <div class="title-header">
-            <h2 style="color: #fff; text-transform: uppercase">
-              elhayat group
-            </h2>
-            <p class="lead">For Home Medical Health Care</p>
-          </div>
-          <div class="filter-header">
-            <form id="sform" action="searchservices" method="post">
-              <input
-                type="text"
-                id="q"
-                name="q"
-                required="required"
-                placeholder="What Services do you want?"
-                class="input-large typeahead"
-                autocomplete="off"
-              />
-              <input type="submit" name="submit" value="Search" />
-            </form>
-          </div>
-        </div>
-      </section>
-      <section class="content-central">
-        <div class="content_info content_resalt">
-          <div class="container" style="margin-top: 40px">
-            <div class="row"></div>
-          </div>
-          <div class="container">
-            <div class="row">
-              <div class="col-md-12">
-                <ul id="sponsors" class="tooltip-hover">
-                  <% service.forEach(s => { %>
-                  <li
-                    data-toggle="tooltip"
-                    title=""
-                    data-original-title="<%= s.name %>"
-                  >
-                    <a href="/service/<%= s.slug %>"
-                      ><img
-                        style="width: 75px; height: 50px; border-radius: 5px"
-                        src="<%= s.thumbnail %>"
-                        alt="<%= s.name %>"
-                    /></a>
-                  </li>
-                  <% }) %>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="semiboxshadow text-center">
-          <img src="/img/img-theme/shp.png" class="img-responsive" alt="" />
-        </div>
-        <div class="content_info">
-          <div>
-            <div class="container">
-              <div class="row">
-                <div class="titles">
-                  <h2>EL-HEAYAH GROUP <span>Choice</span> of Services</h2>
-                  <hr class="tall" />
-                </div>
-              </div>
-              <div class="Container" style="margin-top: -50px">
-                <% service.forEach(s=> { %>
-                <div
-                  class="col-xs-6 col-sm-4 col-md-3 hsgrids"
-                  style="padding-right: 5px; padding-left: 5px"
-                >
-                  <a class="g-list" href="/service/<%=s.slug%>">
-                    <div class="img-hover">
-                      <img
-                        style="width: 100%; height: 170px"
-                        src="<%= s.thumbnail %>"
-                        class="img-responsive"
-                      />
-                    </div>
-                    <div class="info-gallery">
-                      <h3><%= s.name %></h3>
-                      <hr class="separator" />
-                      <p><%= s.nameAr %></p>
-                      <div class="content-btn">
-                        <a href="/service/<%= s.slug %>" class="btn btn-primary"
-                          >Book Now</a
-                        >
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <% }) %>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <%- include("./navandfooter/footer.ejs") %>
+    <%- include('components/nav') %>
+    <div class="content">
+      <div class="L">
+        <h1>Al-Hayat Group</h1>
+        <p>
+          Welcome to Al-Hayat Group, your trusted partner in healthcare. We are
+          committed to providing high-quality medical services to our community.
+          Our team of dedicated professionals works tirelessly to ensure that
+          every patient receives personalized care and attention. At Al-Hayat
+          Group, we believe in the power of modern medicine and the importance
+          of compassionate care. Join us on our journey to create a healthier
+          world, one patient at a time.
+        </p>
+        <a href="/services">Get Services</a>
+      </div>
+      <div class="R">
+        <div class="circle"></div>
+        <img src="/img/doctor.png" />
+      </div>
     </div>
-    <%- include("./navandfooter/scripts.ejs") %>
-    <script type="text/javascript">
-      jQuery(document).ready(function () {
-        jQuery(".tp-banner").show().revolution({
-          dottedOverlay: "none",
-          delay: 5000,
-          startwidth: 1170,
-          startheight: 480,
-          minHeight: 250,
-          navigationType: "none",
-          navigationArrows: "solo",
-          navigationStyle: "preview1",
-        });
-      });
-    </script>
   </body>
 </html>
-<% }else { %> <%- include("./arabic/index.ejs") %> <% } %>

@@ -16,15 +16,28 @@ function EngOrAr(req) {
   }
 }
 
+function ErrorPage(eng, error, res) {
+  res.render("error", {
+    error: error,
+    eng: eng,
+  });
+}
+
 const controller = {
   GetHomePage: async function (req, res) {
-    const service = await services.GetAllServices(db);
     const eng = EngOrAr(req);
 
-    res.render("index", {
-      service: service,
-      eng: eng,
-    });
+    try {
+      const service = await services.GetAllServices(db);
+
+      res.render("index", {
+        service: service,
+        eng: eng,
+      });
+    } catch (err) {
+      console.log(err);
+      ErrorPage(eng, err, res);
+    }
   },
   GetDetailsPage: async function (req, res) {
     const slug = req.params.slug;

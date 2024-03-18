@@ -21,16 +21,11 @@ const services = {
     }
   },
   GetAllServices: async (db) => {
-    try {
-      const [services, _] = await db.query("SELECT * FROM services");
-      services.forEach((service) => {
-        service.thumbnail = service.thumbnail.replace("static", "");
-      });
-      return services;
-    } catch (err) {
-      console.error(err);
-      return [];
-    }
+    const [services, _] = await db.query("SELECT * FROM services");
+    services.forEach((service) => {
+      service.thumbnail = service.thumbnail.replace("static", "");
+    });
+    return services;
   },
   GetServiceBySlug: async (db, slug) => {
     try {
